@@ -60,8 +60,8 @@ public class CameraFingerprintProcess {
             settings.setCreateFingerprint(true);
             logger.log(Level.INFO, "Created camera fingerprint: {0}", outputString);
         } else {
-            logger.log(Level.SEVERE, "Do not created camera fingerprint: {0}", outputString);
-            throw new CameraFingerprintException("Do not created camera fingerprint, see log!");
+            logger.log(Level.SEVERE, "Camera fingerprint could not be created: {0}", outputString);
+            throw new CameraFingerprintException("Camera fingerprint could not be create. See log for details!");
         }
     }
 

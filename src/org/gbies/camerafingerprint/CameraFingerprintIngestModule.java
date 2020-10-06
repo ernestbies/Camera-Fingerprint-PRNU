@@ -126,7 +126,7 @@ public class CameraFingerprintIngestModule implements DataSourceIngestModule {
             }
         }
 
-        logger.log(Level.INFO, "Matching files is complete");
+        logger.log(Level.INFO, "Matching files is complete.");
 
         message = IngestMessage.createMessage(IngestMessage.MessageType.DATA, "Camera Fingerprint PRNU", "End task.");
         IngestServices.getInstance().postMessage(message);
