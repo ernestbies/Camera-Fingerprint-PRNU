@@ -1,5 +1,5 @@
 # Camera Fingerprit PRNU
-Autopsy module that checks if the evidence photo was truly taken by the suspect camera or not.
+An Autopsy module, that checks if a photo was truly taken by a suspected camera or not.
 
 ## Table of contents
 * [General info](#general-info)
@@ -11,12 +11,13 @@ Autopsy module that checks if the evidence photo was truly taken by the suspect 
 * [Contact](#contact)
 
 ## General info
-Camera Fingerprint PRNU uses the photo response non-uniformity of the camera sensor (PRNU) to check if the evidence photo was truly taken by the suspect camera or not. Module is not based on metadata such as EXIF, performs a physical analysis of the camera sensor, determines photo response non-uniformity (PRNU), uses the principle that each sensor pixel behaves differently with effects such as non-uniform photo response, making each sensor is unique, identifies each pixel anomaly and uses this information to create a description of the camera sensor - "sensor fingerprint".
+Camera Fingerprint PRNU uses the photo response non-uniformity of camera sensor (PRNU) to check if a photo was truly taken by a suspected camera or not. Module is not based on metadata such as EXIF, performs a physical analysis of the camera sensor, determines photo response non-uniformity (PRNU), uses the principle that each sensor pixel behaves differently with effects such as non-uniform photo response, making each sensor is unique, identifies each pixel anomaly and uses this information to create a description of the camera sensor - the camera fingerprint.
 
 ## Screenshots
 ![Screenshot](./screenshot.png)
 
 ## Technologies
+* Windows OS
 * Autopsy - version 4.15.0
 * Apache NetBeans IDE - version 9.0
 * Python - version 3.6.0
@@ -38,10 +39,11 @@ Uninstallation:
 5. Follow the steps, restart Autopsy.
 
 ## Usage
-1. Add the evidence photos to Data Source.
-2. After starting the module, select the directory with reference photos and enter the name "sensor fingerprint" of the camera, the file containing the fingerprint will be saved in the directory.
-3. You can increase the fingerprint size if the photos were not matched during the analyzing process.
-4. If the fingerprint has been made earlier, you can select the file .cfp.
+1. Take reference photos of white surfaces (walls or clouds) with the suspected camera so that the module creates the camera fingerprint.
+1. Add evidence photos to Data Source.
+2. Select directory with reference photos and enter the camera fingerprint name.
+3. You can increase the fingerprint size to increase accuracy.
+4. If the camera fingerprint has been created before, you can load it from file (.cfp).
 5. Case Study: https://www.youtube.com/watch?v=3V9MfSZSL-s.
 
 ## Inspiration
