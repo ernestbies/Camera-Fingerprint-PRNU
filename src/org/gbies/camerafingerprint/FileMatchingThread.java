@@ -65,7 +65,7 @@ public class FileMatchingThread extends Thread {
             try {
                 pce = Double.valueOf(data[1]);
             } catch (NumberFormatException e) {
-                logger.log(Level.WARNING, "Error  while converting PCE = {0}, {1}", new Object[]{data[1], e.getMessage()});
+                logger.log(Level.WARNING, "Error while converting PCE = {0}, {1}", new Object[]{data[1], e.getMessage()});
             }
             double correlation = 0.0;
             try {

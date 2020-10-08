@@ -41,10 +41,10 @@ Uninstallation:
 ## Usage
 1. Take reference photos of white surfaces (walls or clouds) with the suspected camera so that the module creates the camera fingerprint.
 1. Add evidence photos to Data Source.
-2. Select directory with reference photos and enter the camera fingerprint name.
-3. You can increase the fingerprint size to increase accuracy.
-4. If the camera fingerprint has been created before, you can load it from file (.cfp).
-5. Case Study: https://www.youtube.com/watch?v=3V9MfSZSL-s.
+2. Select a directory with reference photos and enter the camera fingerprint name.
+3. You can resize the fingerprint to increase accuracy.
+4. If the camera fingerprint has been created before, you can load it from a file (.cfp).
+5. Case Study: https://www.youtube.com/watch?v=lsoqVuuq9T0&t=5s
 
 ## Inspiration
 Project based on https://github.com/polimi-ispl/prnu-python
