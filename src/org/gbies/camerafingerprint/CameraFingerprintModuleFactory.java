@@ -33,7 +33,7 @@ public class CameraFingerprintModuleFactory extends IngestModuleFactoryAdapter {
     private static final String moduleName = "Camera Fingerprint PRNU";
     private final String VERSION_NUMBER = "1.0";    
     private final String displayName = "Camera Fingerprint PRNU";
-    private final String description = "Module check if a photo was truly taken by a suspected camera or not.";
+    private final String description = "Module checks if a photo was truly taken by a suspected camera or not.";
 
     public CameraFingerprintModuleFactory() {
         super();
