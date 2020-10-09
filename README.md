@@ -39,7 +39,7 @@ Uninstallation:
 5. Follow the steps, restart Autopsy.
 
 ## Usage
-1. Take reference photos of white surfaces (walls or clouds) with the suspected camera so that the module creates the camera fingerprint.
+1. Take reference photos of white surfaces (walls or clouds) with the suspected camera so that the module can create the camera fingerprint.
 1. Add evidence photos to Data Source.
 2. Select a directory with reference photos and enter the camera fingerprint name.
 3. You can resize the fingerprint to increase accuracy.
@@ -50,4 +50,4 @@ Uninstallation:
 Project based on https://github.com/polimi-ispl/prnu-python
 
 ## Contact
-Created by Grzegorz Bieś [g.bies@poczta.fm] & Ernest Bieś [ernestbies@gmail.com]
+Created by Grzegorz Bieś [g.bies@poczta.fm], Ernest Bieś [ernestbies@gmail.com]
