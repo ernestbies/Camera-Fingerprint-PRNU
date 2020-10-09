@@ -21,6 +21,7 @@
 package org.gbies.camerafingerprint;
 
 public class CameraFingerprintException extends RuntimeException {
+    
     public CameraFingerprintException(String msg){
         super(msg);
     }    

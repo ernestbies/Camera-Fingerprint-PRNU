@@ -27,6 +27,7 @@ import org.openide.util.Exceptions;
 import org.sleuthkit.autopsy.casemodule.Case;
 import org.sleuthkit.autopsy.coreutils.ExecUtil;
 import org.sleuthkit.autopsy.coreutils.Logger;
+import org.sleuthkit.autopsy.coreutils.MessageNotifyUtil;
 import org.sleuthkit.autopsy.ingest.IngestServices;
 import org.sleuthkit.datamodel.BlackboardArtifact;
 import org.sleuthkit.datamodel.BlackboardAttribute;
@@ -61,7 +62,8 @@ public class CameraFingerprintProcess {
             logger.log(Level.INFO, "Created camera fingerprint: {0}", outputString);
         } else {
             logger.log(Level.SEVERE, "Camera fingerprint could not be created: {0}", outputString);
-            throw new CameraFingerprintException("Camera fingerprint could not be created. See log for details!");
+            MessageNotifyUtil.Notify.error("Error Message", "Camera fingerprint could not be created. See log for details!");            
+            throw new CameraFingerprintException("Camera fingerprint could not be created: " + outputString);
         }
     }
 
@@ -161,11 +163,11 @@ public class CameraFingerprintProcess {
         return processExecution("-c", settings.getDirectoryImages().getAbsolutePath(), "", fingerprintFile.getAbsolutePath(), settings.getFingerprintSize());
     }
     
-    public String matchedFile(File matchedFile) throws IOException, InterruptedException{
+    public String matchedFile(File matchedFile) throws IOException, InterruptedException, CameraFingerprintException{
         String outputString = processExecution("-f", "", matchedFile.getAbsolutePath(), settings.getFingerprintFile().getAbsolutePath(), 0);
         if(outputString.contains("Can't read camera fingerprint")){
-            logger.log(Level.SEVERE, outputString);
-            throw new CameraFingerprintException("Can't read camera fingerprint!");            
+            logger.log(Level.SEVERE, "Can't read camera fingerprint{0}", outputString);
+            throw new CameraFingerprintException("Can't read camera fingerprint");            
         }
         return outputString;
     }

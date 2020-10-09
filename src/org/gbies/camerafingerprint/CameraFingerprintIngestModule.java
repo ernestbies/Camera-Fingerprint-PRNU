@@ -30,6 +30,7 @@ import org.openide.util.Exceptions;
 import org.sleuthkit.autopsy.casemodule.Case;
 import org.sleuthkit.autopsy.casemodule.services.FileManager;
 import org.sleuthkit.autopsy.coreutils.Logger;
+import org.sleuthkit.autopsy.coreutils.MessageNotifyUtil;
 import org.sleuthkit.autopsy.ingest.DataSourceIngestModule;
 import org.sleuthkit.autopsy.ingest.DataSourceIngestModuleProgress;
 import org.sleuthkit.autopsy.ingest.IngestJobContext;
@@ -82,7 +83,8 @@ public class CameraFingerprintIngestModule implements DataSourceIngestModule {
         } else {
             if (!settings.getFingerprintFile().exists()) {
                 logger.log(Level.SEVERE, "Can't find camera fingerprint file {0}", settings.getFingerprintFile());
-                throw new CameraFingerprintException("Can't find camera fingerprint file!");
+                MessageNotifyUtil.Notify.error("Error Message", "Can't find camera fingerprint file. See log for details!");
+                throw new CameraFingerprintException("Can't find camera fingerprint file");
             }
         }
 
@@ -94,8 +96,10 @@ public class CameraFingerprintIngestModule implements DataSourceIngestModule {
             return ProcessResult.OK;
         }
 
-        cameraFingerprintProcess.createArtifact();
-        ForkJoinPool executor = ForkJoinPool.commonPool();        
+        cameraFingerprintProcess.createArtifact();        
+        
+        //Matching files in separate threads
+        ForkJoinPool executor = ForkJoinPool.commonPool(); 
         
         for (AbstractFile imageFile : imageFiles) {
             
@@ -106,11 +110,11 @@ public class CameraFingerprintIngestModule implements DataSourceIngestModule {
                 return IngestModule.ProcessResult.OK;
             }
         }
-
+                
         int tasksCount = imageFiles.size();
         progressBar.switchToDeterminate(tasksCount);
         executor.shutdown();
-
+        
         int currentTasks, previousTasks = 0;
         while (executor.getActiveThreadCount() != 0) {
             currentTasks = tasksCount - executor.getQueuedSubmissionCount();

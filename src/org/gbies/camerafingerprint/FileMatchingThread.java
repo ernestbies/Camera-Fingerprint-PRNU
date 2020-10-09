@@ -59,7 +59,7 @@ public class FileMatchingThread extends Thread {
         try {
             String result = cameraFingerprintProcess.matchedFile(outFile);                       
             String[] data = result.split("\t");
-            logger.log(Level.INFO, "Matching a file... {0}", result);
+            logger.log(Level.INFO, "Matching file... {0}", result);
 
             double pce = 0.0;
             try {
